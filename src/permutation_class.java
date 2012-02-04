@@ -16,28 +16,28 @@ public class permutation_class {
 	// the console the resulting list of permutations.
 	// 1,5,4,2
 
-	public static ArrayList<ArrayList<Integer>> permutations(
-			ArrayList<Integer> list) {
+	public static ArrayList<ArrayList<Object>> permutations(
+			ArrayList<Object> list) {
 		return permutations(null, list, null);
 	}
 
-	public static ArrayList<ArrayList<Integer>> permutations(
-			ArrayList<Integer> prefix, ArrayList<Integer> suffix,
-			ArrayList<ArrayList<Integer>> output) {
+	public static ArrayList<ArrayList<Object>> permutations(
+			ArrayList<Object> prefix, ArrayList<Object> suffix,
+			ArrayList<ArrayList<Object>> output) {
 		if (prefix == null)
-			prefix = new ArrayList<Integer>();
+			prefix = new ArrayList<Object>();
 		if (output == null)
-			output = new ArrayList<ArrayList<Integer>>();
+			output = new ArrayList<ArrayList<Object>>();
 		if (suffix.size() == 1) {
-			ArrayList<Integer> newElement = new ArrayList<Integer>(prefix);
+			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
 			newElement.addAll(suffix);
 			output.add(newElement);
 			return output;
 		}
 		for (int i = 0; i < suffix.size(); i++) {
-			ArrayList<Integer> newPrefix = new ArrayList<Integer>(prefix);
+			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
 			newPrefix.add(suffix.get(i));
-			ArrayList<Integer> newSuffix = new ArrayList<Integer>(suffix);
+			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
 			newSuffix.remove(i);
 			permutations(newPrefix, newSuffix, output);
 		}
@@ -45,13 +45,13 @@ public class permutation_class {
 	}
 
 	public static void main(String args[]) {
-		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		ArrayList<Object> arrayList = new ArrayList<Object>();
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
 		arrayList.add(4);
-		ArrayList<ArrayList<Integer>> result = permutations(arrayList);
-		java.util.Iterator<ArrayList<Integer>> iter = result.iterator();
+		ArrayList<ArrayList<Object>> result = permutations(arrayList);
+		java.util.Iterator<ArrayList<Object>> iter = result.iterator();
 		while (iter.hasNext()) {
 			System.out.println(iter.next().toString());
 		}
