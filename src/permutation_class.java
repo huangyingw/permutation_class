@@ -18,6 +18,9 @@ public class permutation_class {
 	// 1,5,4,2
 	@SuppressWarnings("null")
 	public static ArrayList<int[]> permutation(Arrays arr) {
+		int[] temp = new int[3];
+		ArrayList<Integer> arrList = new ArrayList<Integer>();
+		arrList.remove(index);
 		ArrayList<int[]> result = null;
 		int[] newArr;
 		int data;
