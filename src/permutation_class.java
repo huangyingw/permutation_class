@@ -17,26 +17,28 @@ public class permutation_class {
 	// the console the resulting list of permutations.
 	// 1,5,4,2
 	@SuppressWarnings("null")
-	public static ArrayList<int[]> permutation(Arrays arr) {
-		int[] temp = new int[3];
-		ArrayList<Integer> arrList = new ArrayList<Integer>();
-		arrList.remove(index);
-		ArrayList<int[]> result = null;
-		int[] newArr;
+	public static ArrayList<int[]> permutation(ArrayList<Integer> arr) {
+		int[] newArray;
 		int data;
-		if (arr <= 1) {
-			result.add(arr);
+		ArrayList<int[]> result = new ArrayList<int[]>();
+		if (arr.size() <= 1) {
+			return new ArrayList<int[]>(arr.toArray()[0]);
 		}
 
-		for (int i = 0; i < arr.length; i++) {
-			data = arr[i];
-			arr.newArr = new int[] { arr[i], 1 };
+		for (int i = 0; i < arr.size(); i++) {
+			data = arr.get(i);
+			arr.remove(i);
+			for (int[] array : permutation(arr)) {
+				newArray = new int[array.length + 1];
+				int index = 0;
+				newArray[index] = data;
+				for (int j = 0; j < array.length; j++) {
+					newArray[index++] = array[j];
+				}
+				result.add(newArray);
+			}
 		}
-
 		return result;
-
-		// int[] result = null;
-		// return result;
 	}
 
 	public static void main(String args[]) {
