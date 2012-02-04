@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class permutation_class {
 	// Write a recursive static Java method that accepts an array arr of
 	// integers argument returns a list of all permutations of these
@@ -12,8 +14,9 @@ public class permutation_class {
 	// Next, test your method using a main method; the main method should
 	// pass in the following array: [1, 5, 4, 2]; then, it should print to
 	// the console the resulting list of permutations.
-	int[] permutation(int[] arr) {
-		int[] result = null;
+	// 1,5,4,2
+	public static ArrayList<int[]> permutation(int[] arr) {
+		ArrayList<int[]> result = null;
 		return result;
 	}
 
