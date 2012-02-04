@@ -16,26 +16,29 @@ public class permutation_class {
 	// pass in the following array: [1, 5, 4, 2]; then, it should print to
 	// the console the resulting list of permutations.
 	// 1,5,4,2
-	@SuppressWarnings("null")
-	public static ArrayList<int[]> permutation(Arrays arr) {
-		ArrayList<int[]> result = null;
-		int[] newArr;
-		int data;
-		if (arr <= 1) {
-			result.add(arr);
+	private static String[] permutation(String orginal) {
+		ArrayList<String> list = new ArrayList<String>();
+		if (orginal.length() == 1) {
+			return new String[] { orginal };
+		} else {
+			for (int i = 0; i < orginal.length(); i++) {
+				String s = orginal.charAt(i) + "";
+				String result = "";
+				String resultA = result + s;
+				String leftS = orginal.substring(0, i)
+						+ orginal.substring(i + 1, orginal.length());
+				for (String element : permutation(leftS)) {
+					result = resultA + element;
+					list.add(result);
+				}
+			}
+			return (String[]) list.toArray(new String[list.size()]);
 		}
-
-		for (int i = 0; i < arr.length; i++) {
-			data = arr[i];
-			arr.newArr = new int[] { arr[i], 1 };
-		}
-
-		return result;
-
-		// int[] result = null;
-		// return result;
 	}
 
 	public static void main(String args[]) {
+		String str = "1234";
+		System.out.println(permutation(str).length);
+		System.out.println(Arrays.toString(permutation(str)));
 	}
 }
