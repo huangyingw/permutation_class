@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class permutation_class {
 	// Write a recursive static Java method that accepts an array arr of
@@ -15,9 +16,24 @@ public class permutation_class {
 	// pass in the following array: [1, 5, 4, 2]; then, it should print to
 	// the console the resulting list of permutations.
 	// 1,5,4,2
-	public static ArrayList<int[]> permutation(int[] arr) {
+	@SuppressWarnings("null")
+	public static ArrayList<int[]> permutation(Arrays arr) {
 		ArrayList<int[]> result = null;
+		int[] newArr;
+		int data;
+		if (arr <= 1) {
+			result.add(arr);
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			data = arr[i];
+			arr.newArr = new int[] { arr[i], 1 };
+		}
+
 		return result;
+
+		// int[] result = null;
+		// return result;
 	}
 
 	public static void main(String args[]) {
