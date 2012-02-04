@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class permutation_class {
 	// Write a recursive static Java method that accepts an array arr of
@@ -49,9 +50,10 @@ public class permutation_class {
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
-		arrayList.add(4);
+		// arrayList.add(4);
 		ArrayList<ArrayList<Object>> result = permutations(arrayList);
-		java.util.Iterator<ArrayList<Object>> iter = result.iterator();
+		Iterator<ArrayList<Object>> iter = result.iterator();
+		System.out.println(result.size());
 		while (iter.hasNext()) {
 			System.out.println(iter.next().toString());
 		}
