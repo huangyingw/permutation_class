@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 public class permutation_class {
 	// Write a recursive static Java method that accepts an array arr of
 	// integers argument returns a list of all permutations of these
@@ -18,28 +16,28 @@ public class permutation_class {
 	// the console the resulting list of permutations.
 	// 1,5,4,2
 
-	public static ArrayList<ArrayList<Object>> permutations(
-			ArrayList<Object> list) {
+	public static ArrayList<ArrayList<Integer>> permutations(
+			ArrayList<Integer> list) {
 		return permutations(null, list, null);
 	}
 
-	public static ArrayList<ArrayList<Object>> permutations(
-			ArrayList<Object> prefix, ArrayList<Object> suffix,
-			ArrayList<ArrayList<Object>> output) {
+	public static ArrayList<ArrayList<Integer>> permutations(
+			ArrayList<Integer> prefix, ArrayList<Integer> suffix,
+			ArrayList<ArrayList<Integer>> output) {
 		if (prefix == null)
-			prefix = new ArrayList<Object>();
+			prefix = new ArrayList<Integer>();
 		if (output == null)
-			output = new ArrayList<ArrayList<Object>>();
+			output = new ArrayList<ArrayList<Integer>>();
 		if (suffix.size() == 1) {
-			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
+			ArrayList<Integer> newElement = new ArrayList<Integer>(prefix);
 			newElement.addAll(suffix);
 			output.add(newElement);
 			return output;
 		}
 		for (int i = 0; i < suffix.size(); i++) {
-			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
+			ArrayList<Integer> newPrefix = new ArrayList<Integer>(prefix);
 			newPrefix.add(suffix.get(i));
-			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
+			ArrayList<Integer> newSuffix = new ArrayList<Integer>(suffix);
 			newSuffix.remove(i);
 			permutations(newPrefix, newSuffix, output);
 		}
@@ -47,13 +45,15 @@ public class permutation_class {
 	}
 
 	public static void main(String args[]) {
-		ArrayList<Object> arrayList = new ArrayList<Object>();
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
 		arrayList.add(4);
-		ArrayList<ArrayList<Object>> result = permutations(arrayList);
-		Iterator iter = (Iterator) result.iterator();
-
+		ArrayList<ArrayList<Integer>> result = permutations(arrayList);
+		java.util.Iterator<ArrayList<Integer>> iter = result.iterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next().toString());
+		}
 	}
 }
