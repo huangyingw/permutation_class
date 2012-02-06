@@ -64,22 +64,22 @@ public class permutation_class {
 	// the console the resulting list of permutations.
 	//
 	// f(12,345) = f(123,45)+f(124,45)+f(125,45)
-	private static String[] permutation_str(String orginal) {
-		ArrayList<String> list = new ArrayList<String>();
-		if (orginal.length() == 1) {
-			return new String[] { orginal };
-		} else {
-			for (int i = 0; i < orginal.length(); i++) {
-				String result = "";
-				result += orginal.charAt(i);
-				String remainS = orginal.substring(0, i)
-						+ orginal.substring(i + 1, orginal.length());
-				for (String element : permutation_str(remainS)) {
-					result += element;
-					list.add(result);
-				}
-			}
-			return (String[]) list.toArray(new String[list.size()]);
+	private static String[] permutation_str(String original) {
+		String remain = "";
+		String[] result = new String[original.length()];
+		if (original.length() == 1) {
+			return new String[] { original };
 		}
+		for (int i = 0; i < original.length(); i++) {
+			String str = "";
+			str += original.charAt(i) + "";
+			remain = original.substring(0, i)
+					+ original.substring(i + 1, original.length());
+			for (String element : permutation_str(remain)) {
+				str += element;
+			}
+			result[i] = str;
+		}
+		return result;
 	}
 }
