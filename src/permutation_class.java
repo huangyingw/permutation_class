@@ -5,9 +5,10 @@ public class permutation_class {
 	public static void main(String args[]) {
 		String str = "1234";
 		String[] result = permutation_str(str);
-		System.out.println(result.length);
 		System.out.println(Arrays.toString(result));
 	}
+
+	public static int count = 1;
 
 	// 1234=1,234+2,134+3,124+4,123
 	private static String[] permutation_str(String original) {
@@ -23,8 +24,10 @@ public class permutation_class {
 			for (String element : permutation_str(remain)) {
 				str = original.charAt(i) + element;
 				result.add(str);
+				System.out.println("add->" + str);
 			}
 		}
+		System.out.println(count++);
 		return (String[]) result.toArray(new String[result.size()]);
 	}
 }
