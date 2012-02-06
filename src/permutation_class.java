@@ -35,7 +35,9 @@ public class permutation_class {
 		if (suffix.size() == 1) {
 			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
 			newElement.addAll(suffix);
+			// prefix.addAll(suffix);
 			result.add(newElement);
+			// result.add(prefix);
 			return result;
 		}
 
