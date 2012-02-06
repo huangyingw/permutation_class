@@ -65,14 +65,13 @@ public class permutation_class {
 	//
 	// f(12,345) = f(123,45)+f(124,45)+f(125,45)
 	private static String[] permutation_str(String original) {
+		String str = "";
 		String remain = "";
 		ArrayList<String> result = new ArrayList<String>();
 		if (original.length() == 1) {
 			return new String[] { original };
 		}
 		for (int i = 0; i < original.length(); i++) {
-			String str = "";
-			str += original.charAt(i) + "";
 			remain = original.substring(0, i)
 					+ original.substring(i + 1, original.length());
 			for (String element : permutation_str(remain)) {
