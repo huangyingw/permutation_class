@@ -70,9 +70,8 @@ public class permutation_class {
 			return new String[] { orginal };
 		} else {
 			for (int i = 0; i < orginal.length(); i++) {
-				String s = orginal.charAt(i) + "";
 				String result = "";
-				String resultA = result + s;
+				String resultA = result + orginal.charAt(i) ;
 				String leftS = orginal.substring(0, i)
 						+ orginal.substring(i + 1, orginal.length());
 				for (String element : permutation_str(leftS)) {
