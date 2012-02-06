@@ -11,20 +11,19 @@ public class permutation_class {
 
 	// 1234=1,234+2,134+3,124+4,123
 	private static String[] permutation_str(String original) {
+		String str = null;
 		String remain = "";
 		ArrayList<String> result = new ArrayList<String>();
 		if (original.length() == 1) {
 			return new String[] { original };
 		}
 		for (int i = 0; i < original.length(); i++) {
-			String str = "";
-			str += original.charAt(i) + "";
 			remain = original.substring(0, i)
 					+ original.substring(i + 1, original.length());
 			for (String element : permutation_str(remain)) {
-				str += element;
+				str = original.charAt(i) + element;
+				result.add(str);
 			}
-			result.add(str);
 		}
 		return (String[]) result.toArray(new String[result.size()]);
 	}
