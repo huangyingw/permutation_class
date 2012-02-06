@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class permutation_class {
 	public static void main(String args[]) {
