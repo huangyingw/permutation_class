@@ -31,14 +31,12 @@ public class permutation_class {
 		if (result == null) {
 			result = new ArrayList<ArrayList<Object>>();
 		}
-
 		if (suffix.size() == 1) {
 			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
 			newElement.addAll(suffix);
 			result.add(newElement);
 			return result;
 		}
-
 		for (int i = 0; i < suffix.size(); i++) {
 			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
 			newPrefix.add(suffix.get(i));
@@ -54,8 +52,6 @@ public class permutation_class {
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
-		arrayList.add(4);
-		arrayList.add(5);
 		ArrayList<ArrayList<Object>> result = permutation(arrayList);
 		Iterator<ArrayList<Object>> iter = result.iterator();
 		System.out.println(result.size());
