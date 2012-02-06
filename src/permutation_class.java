@@ -9,11 +9,10 @@ public class permutation_class {
 		} else {
 			for (int i = 0; i < orginal.length(); i++) {
 				String result = "";
-				String resultA = "" + orginal.charAt(i);
 				String leftS = orginal.substring(0, i)
 						+ orginal.substring(i + 1, orginal.length());
 				for (String element : permutation(leftS)) {
-					result = resultA + element;
+					result = orginal.charAt(i) + element;
 					list.add(result);
 				}
 			}
