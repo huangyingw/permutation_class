@@ -3,12 +3,12 @@ import java.util.Arrays;
 
 public class permutation_class {
 	private static String[] permutation(String orginal) {
+		String result;
 		ArrayList<String> list = new ArrayList<String>();
 		if (orginal.length() == 1) {
 			return new String[] { orginal };
 		} else {
 			for (int i = 0; i < orginal.length(); i++) {
-				String result = "";
 				String leftS = orginal.substring(0, i)
 						+ orginal.substring(i + 1, orginal.length());
 				for (String element : permutation(leftS)) {
