@@ -35,9 +35,7 @@ public class permutation_class {
 		if (suffix.size() == 1) {
 			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
 			newElement.addAll(suffix);
-			// prefix.addAll(suffix);
 			result.add(newElement);
-			// result.add(prefix);
 			return result;
 		}
 
@@ -46,7 +44,7 @@ public class permutation_class {
 			newPrefix.add(suffix.get(i));
 			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
 			newSuffix.remove(i);
-			result.addAll(permutation(newPrefix, newSuffix, result));
+			permutation(newPrefix, newSuffix, result);
 		}
 		return result;
 	}
@@ -56,7 +54,8 @@ public class permutation_class {
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
-		// arrayList.add(4);
+		arrayList.add(4);
+		arrayList.add(5);
 		ArrayList<ArrayList<Object>> result = permutation(arrayList);
 		Iterator<ArrayList<Object>> iter = result.iterator();
 		System.out.println(result.size());
