@@ -4,69 +4,16 @@ import java.util.Iterator;
 
 public class permutation_class {
 	public static void main(String args[]) {
-		ArrayList<Object> arrayList = new ArrayList<Object>();
-		arrayList.add(1);
-		arrayList.add(2);
-		arrayList.add(3);
-		ArrayList<ArrayList<Object>> result = permutation(arrayList);
-		Iterator<ArrayList<Object>> iter = result.iterator();
-		System.out.println(result.size());
-		while (iter.hasNext()) {
-			System.out.println(iter.next().toString());
-		}
 		String str = "1234";
-		System.out.println(permutation_str(str).length);
-		System.out.println(Arrays.toString(permutation_str(str)));
+		String[] result = permutation_str(str);
+		System.out.println(result.length);
+		System.out.println(Arrays.toString(result));
 	}
 
-	public static ArrayList<ArrayList<Object>> permutation(
-			ArrayList<Object> list) {
-		return permutation(null, list, null);
-	}
-
-	public static ArrayList<ArrayList<Object>> permutation(
-			ArrayList<Object> prefix, ArrayList<Object> suffix,
-			ArrayList<ArrayList<Object>> result) {
-		if (prefix == null) {
-			prefix = new ArrayList<Object>();
-		}
-		if (result == null) {
-			result = new ArrayList<ArrayList<Object>>();
-		}
-		if (suffix.size() == 1) {
-			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
-			newElement.addAll(suffix);
-			result.add(newElement);
-			return result;
-		}
-		for (int i = 0; i < suffix.size(); i++) {
-			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
-			newPrefix.add(suffix.get(i));
-			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
-			newSuffix.remove(i);
-			permutation(newPrefix, newSuffix, result);
-		}
-		return result;
-	}
-
-	// Write a recursive static Java method that accepts an array arr of
-	// integers argument returns a list of all permutations of these
-	// integers.
-	//
-	// (A permutation of a sequence of integers is a re-arrangement of the
-	// integers. For example, one permutation of 1, 3, 4, 8, 2 is 3, 1, 2,
-	// 8, 4.) For this problem, you may assume that the input array contains
-	// no duplicate entries. Your method should return an ArrayList of int
-	// arrays.
-	//
-	// Next, test your method using a main method; the main method should
-	// pass in the following array: [1, 5, 4, 2]; then, it should print to
-	// the console the resulting list of permutations.
-	//
-	// f(12,345) = f(123,45)+f(124,45)+f(125,45)
+	// 1234=1,234+2,134+3,124+4,123
 	private static String[] permutation_str(String original) {
 		String remain = "";
-		String[] result = new String[original.length()];
+		ArrayList<String> result = new ArrayList<String>();
 		if (original.length() == 1) {
 			return new String[] { original };
 		}
@@ -78,8 +25,8 @@ public class permutation_class {
 			for (String element : permutation_str(remain)) {
 				str += element;
 			}
-			result[i] = str;
+			result.add(str);
 		}
-		return result;
+		return (String[]) result.toArray(new String[result.size()]);
 	}
 }
