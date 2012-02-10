@@ -71,11 +71,10 @@ public class permutation_class {
 		} else {
 			for (int i = 0; i < orginal.length(); i++) {
 				String result = "";
-				result += orginal.charAt(i);
 				String remainS = orginal.substring(0, i)
 						+ orginal.substring(i + 1, orginal.length());
 				for (String element : permutation_str(remainS)) {
-					result += element;
+					result = orginal.charAt(i) + element;
 					list.add(result);
 				}
 			}
