@@ -70,11 +70,10 @@ public class permutation_class {
 			return new String[] { orginal };
 		} else {
 			for (int i = 0; i < orginal.length(); i++) {
-				String result = "";
 				String remainS = orginal.substring(0, i)
 						+ orginal.substring(i + 1, orginal.length());
 				for (String element : permutation_str(remainS)) {
-					result = orginal.charAt(i) + element;
+					String result = orginal.charAt(i) + element;
 					list.add(result);
 				}
 			}
