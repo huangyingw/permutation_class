@@ -21,12 +21,13 @@ public class permutation_class {
 
 	public static ArrayList<ArrayList<Object>> permutation(
 			ArrayList<Object> list) {
-		return permutation(null, list, null);
+		ArrayList<ArrayList<Object>> result = new ArrayList<ArrayList<Object>>();
+		permutation(null, list, result);
+		return result;
 	}
 
-	public static ArrayList<ArrayList<Object>> permutation(
-			ArrayList<Object> prefix, ArrayList<Object> suffix,
-			ArrayList<ArrayList<Object>> result) {
+	public static void permutation(ArrayList<Object> prefix,
+			ArrayList<Object> suffix, ArrayList<ArrayList<Object>> result) {
 		if (prefix == null) {
 			prefix = new ArrayList<Object>();
 		}
@@ -37,7 +38,6 @@ public class permutation_class {
 			ArrayList<Object> newElement = new ArrayList<Object>(prefix);
 			newElement.addAll(suffix);
 			result.add(newElement);
-			return result;
 		}
 		for (int i = 0; i < suffix.size(); i++) {
 			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
@@ -46,7 +46,6 @@ public class permutation_class {
 			newSuffix.remove(i);
 			permutation(newPrefix, newSuffix, result);
 		}
-		return result;
 	}
 
 	// Write a recursive static Java method that accepts an array arr of
