@@ -41,8 +41,8 @@ public class permutation_class {
 		}
 		for (int i = 0; i < suffix.size(); i++) {
 			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
-			newPrefix.add(suffix.get(i));
 			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
+			newPrefix.add(suffix.get(i));
 			newSuffix.remove(i);
 			permutation(newPrefix, newSuffix, result);
 		}
