@@ -8,12 +8,14 @@ public class permutation_class {
 		arrayList.add(1);
 		arrayList.add(2);
 		arrayList.add(3);
+		arrayList.add(4);
 		ArrayList<ArrayList<Object>> result = permutation(arrayList);
 		Iterator<ArrayList<Object>> iter = result.iterator();
 		System.out.println(result.size());
 		while (iter.hasNext()) {
-			System.out.println(iter.next().toString());
+			System.out.print(iter.next().toString());
 		}
+		System.out.println();
 		String str = "1234";
 		System.out.println(permutation_str(str).length);
 		System.out.println(Arrays.toString(permutation_str(str)));
@@ -42,7 +44,7 @@ public class permutation_class {
 		for (int i = 0; i < suffix.size(); i++) {
 			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
 			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
-			newPrefix.add(suffix.get(i));
+			newPrefix.add(newSuffix.get(i));
 			newSuffix.remove(i);
 			permutation(newPrefix, newSuffix, result);
 		}
