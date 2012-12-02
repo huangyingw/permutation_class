@@ -48,21 +48,6 @@ public class permutation_class {
 		}
 	}
 
-	// Write a recursive static Java method that accepts an array arr of
-	// integers argument returns a list of all permutations of these
-	// integers.
-	//
-	// (A permutation of a sequence of integers is a re-arrangement of the
-	// integers. For example, one permutation of 1, 3, 4, 8, 2 is 3, 1, 2,
-	// 8, 4.) For this problem, you may assume that the input array contains
-	// no duplicate entries. Your method should return an ArrayList of int
-	// arrays.
-	//
-	// Next, test your method using a main method; the main method should
-	// pass in the following array: [1, 5, 4, 2]; then, it should print to
-	// the console the resulting list of permutations.
-	//
-	// f(12,345) = f(123,45)+f(124,45)+f(125,45)
 	private static String[] permutation_str(String orginal) {
 		ArrayList<String> list = new ArrayList<String>();
 		if (orginal.length() == 1) {
