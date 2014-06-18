@@ -24,15 +24,14 @@ public class permutation_class {
 		System.out.println(Arrays.toString(permutation_str(str)));
 	}
 
-	public static List<List<Object>> permutation(
-			List<Object> list) {
+	public static List<List<Object>> permutation(List<Object> list) {
 		List<List<Object>> result = new ArrayList<List<Object>>();
 		permutation(null, list, result);
 		return result;
 	}
 
-	public static void permutation(ArrayList<Object> prefix,
-			List<Object> suffix, List<List<Object>> result) {
+	public static void permutation(List<Object> prefix, List<Object> suffix,
+			List<List<Object>> result) {
 		if (prefix == null) {
 			prefix = new ArrayList<Object>();
 		}
@@ -48,8 +47,8 @@ public class permutation_class {
 		}
 
 		for (int i = 0; i < suffix.size(); i++) {
-			ArrayList<Object> newPrefix = new ArrayList<Object>(prefix);
-			ArrayList<Object> newSuffix = new ArrayList<Object>(suffix);
+			List<Object> newPrefix = new ArrayList<Object>(prefix);
+			List<Object> newSuffix = new ArrayList<Object>(suffix);
 			newPrefix.add(newSuffix.get(i));
 			newSuffix.remove(i);
 			permutation(newPrefix, newSuffix, result);
